@@ -5,37 +5,35 @@ import br.com.fiapride.model.Interruptor;
 public class SistemaPrincipal {
 
     public static void main(String[] args) {
-
-        System.out.println("=== Criando o interruptor ===");
         Interruptor interruptor1 = new Interruptor(2, "Wifi", "Branco");
-        System.out.println(interruptor1);
+        System.out.println("--- Interruptor Criado ---");
+        System.out.println("Modelo: " + interruptor1.modelo + " | Cor: " + interruptor1.cor + " | Tamanho: " + interruptor1.tamanho);
 
-        System.out.println("\n=== Testando ligar/desligar (valores válidos) ===");
+        System.out.println("Ligando o interruptor");
         interruptor1.ligar();
+        System.out.println("Desligando o interruptor");
         interruptor1.desligar();
 
-        System.out.println("\n=== Testando ligar/desligar (valores inválidos) ===");
-        interruptor1.desligar(); // já está desligado
+        System.out.println("Tentando desligar novamente (invalido)");
+        interruptor1.desligar();
         interruptor1.ligar();
-        interruptor1.ligar();   // já está ligado
+        System.out.println("Tentando ligar novamente (invalido)");
+        interruptor1.ligar();
 
-        System.out.println("\n=== Testando setCor (valores válidos) ===");
-        interruptor1.setCor("Preto");
-        System.out.println("Cor atual: " + interruptor1.getCor());
+        System.out.println("Alterando a cor (valido)");
+        interruptor1.alterarCor("Preto");
 
-        System.out.println("\n=== Testando setCor (valores inválidos) ===");
-        interruptor1.setCor("");    // cor vazia
-        interruptor1.setCor(null);  // cor nula
+        System.out.println("Alterando a cor (invalido)");
+        interruptor1.alterarCor("");
 
-        System.out.println("\n=== Testando setTamanho (valores válidos) ===");
-        interruptor1.setTamanho(4);
-        System.out.println("Tamanho atual: " + interruptor1.getTamanho());
+        System.out.println("Alterando o tamanho (valido)");
+        interruptor1.alterarTamanho(4);
 
-        System.out.println("\n=== Testando setTamanho (valores inválidos) ===");
-        interruptor1.setTamanho(0);  // menor que 1
-        interruptor1.setTamanho(6);  // maior que 5
+        System.out.println("Alterando o tamanho (invalido)");
+        interruptor1.alterarTamanho(0);
+        interruptor1.alterarTamanho(6);
 
-        System.out.println("\n=== Estado final do interruptor ===");
-        System.out.println(interruptor1);
+        System.out.println("--- Estado final ---");
+        System.out.println("Modelo: " + interruptor1.modelo + " | Cor: " + interruptor1.cor + " | Tamanho: " + interruptor1.tamanho + " | Ligado: " + interruptor1.ligado);
     }
 }

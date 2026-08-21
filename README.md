@@ -9,35 +9,30 @@ O objeto `Interruptor` representa um interruptor elétrico inteligente (como os 
 ## Diagrama de Classes (UML)
 
 ```
-+---------------------------------------+
-|            Interruptor                |
-+---------------------------------------+
-| - tamanho : int                       |
-| - modelo  : String                    |
-| - cor     : String                    |
-| - ligado  : boolean                   |
-+---------------------------------------+
-| + Interruptor(int, String, String)    |
-| + ligar() : void                      |
-| + desligar() : void                   |
-| + setCor(String) : void               |
-| + setTamanho(int) : void              |
-| + getTamanho() : int                  |
-| + getModelo() : String                |
-| + getCor() : String                   |
-| + isLigado() : boolean                |
-| + toString() : String                 |
-+---------------------------------------+
++------------------------------------------+
+|              Interruptor                  |
++------------------------------------------+
+| + tamanho : int                           |
+| + modelo  : String                        |
+| + cor     : String                        |
+| + ligado  : boolean                       |
++------------------------------------------+
+| + Interruptor(int, String, String)        |
+| + ligar() : void                          |
+| + desligar() : void                       |
+| + alterarCor(novaCor: String) : void      |
+| + alterarTamanho(novoTamanho: int) : void |
++------------------------------------------+
 ```
 
 ## Atributos
 
-| Atributo  | Tipo    | Descrição                                    |
-|-----------|---------|----------------------------------------------|
-| tamanho   | int     | Tamanho do interruptor (1 a 5)               |
-| modelo    | String  | Modelo do interruptor (ex: "Wifi", "Touch")  |
-| cor       | String  | Cor do interruptor (ex: "Branco", "Preto")   |
-| ligado    | boolean | Estado atual: `true` = ligado, `false` = desligado |
+| Atributo  | Tipo    | Descrição                                          |
+|-----------|---------|----------------------------------------------------|
+| tamanho   | int     | Tamanho do interruptor (1 a 5)                     |
+| modelo    | String  | Modelo do interruptor (ex: "Wifi", "Touch")        |
+| cor       | String  | Cor do interruptor (ex: "Branco", "Preto")         |
+| ligado    | boolean | Estado: `true` = ligado, `false` = desligado       |
 
 ## Métodos e Regras de Negócio
 
@@ -49,11 +44,11 @@ Liga o interruptor.
 Desliga o interruptor.
 - **Regra:** não é possível desligar um interruptor que já está desligado.
 
-### `setCor(String cor)`
+### `alterarCor(String novaCor)`
 Altera a cor do interruptor.
-- **Regra:** a cor não pode ser nula ou vazia.
+- **Regra:** a nova cor não pode ser vazia.
 
-### `setTamanho(int tamanho)`
+### `alterarTamanho(int novoTamanho)`
 Altera o tamanho do interruptor.
 - **Regra:** o tamanho deve ser um valor entre 1 e 5.
 
@@ -68,12 +63,12 @@ interruptor.ligar();
 interruptor.desligar();
 
 // Alterar atributos com validação
-interruptor.setCor("Preto");
-interruptor.setTamanho(3);
+interruptor.alterarCor("Preto");
+interruptor.alterarTamanho(3);
 
-// Consultar estado
-System.out.println(interruptor.isLigado());
-System.out.println(interruptor);
+// Consultar estado diretamente
+System.out.println("Ligado: " + interruptor.ligado);
+System.out.println("Cor: " + interruptor.cor);
 ```
 
 ## Como executar
